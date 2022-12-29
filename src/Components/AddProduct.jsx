@@ -4,7 +4,7 @@ const AddProduct = () => {
     const [butn, setButn] = React.useState()
 
     const CreateButton = () => {
-        setButn(butn + 1)
+        
     }
 
   return (
