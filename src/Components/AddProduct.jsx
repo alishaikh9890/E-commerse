@@ -20,24 +20,30 @@ import {
 const AddProduct = () => {
     const { isOpen, onOpen, onClose, scrollBehavior,btnRef } = useDisclosure()
 
-    const [data, setData] = React.useState([]);
+    const [list, setList] = React.useState([]);
+
+    const [hold, setHold] = React.useState("Select Product")
+
+    const [ide, setIde] = React.useState("")
+   
+
 
         const handleAdd = () => {
           const payload = {
             status: false,
             id: uuid()
           };
-          setData([...data, payload]);
+          setList([...list, payload]);
         };
 
         const hanldeDelete = (id) => {  
-                const update = data.filter((el) => el.id !== id);
-                setData(update);
+                const update = list.filter((el) => el.id !== id);
+                setList(update);
               }
 
-              const handleSubmit = () => {
-          
-            }
+              const handleadd = (now) => {
+                    setHold(now)
+              }
             
         
   return (
@@ -52,38 +58,40 @@ const AddProduct = () => {
         <ModalCloseButton />
 
         <ModalBody style={{borderTop:"1px solid gainsboro"}} p={0} >
-        <ProductPicker count={15} />
+
+        <ProductPicker handleadd={handleadd} btn={onClose} />
+
         </ModalBody>
 
         <ModalFooter>
-        <Button onClick={onClose} mr={3}>Cancel</Button>
-        <Button colorScheme='blue' onClick={handleSubmit}>Add</Button>
+       
+
         </ModalFooter>
       </ModalContent>
     </Modal> 
 
     <div>
     
-  
-    {data.map((el) =>
+    {list.map((el) =>
     
         <Draggable>
         <div className='dragable'>
        <h1 style={{fontSize:"4vh", color:"gray", fontWeight:"900"}}>⋮⋮</h1>
-        <div className='input'>
-        <input placeholder='Select Product' />
-        <Button style={{background:"none"}} onClick={onOpen}> 🖋️</Button>
+        <div className='input' key={el.id}>
+        <p >{hold}</p>
+        <Button  style={{background:"none"}} 
+       
+         onClick={onOpen}> 🖋️</Button>
         </div>
         <button className='addbutton' >Add Discount</button>
-        <button onClick={() => hanldeDelete(el.id)}>✕</button>
+        <button onClick={() => {hanldeDelete(el.id)
+             setIde(el.id) }}>✕</button>
      
         </div> 
         </Draggable>
         
         )}
     
-    
-        
     </div>
 
     <button  style={{border:"2px solid #008060", color:"#008060",
@@ -92,6 +100,8 @@ const AddProduct = () => {
     <div>{ 
         
     }</div>
+  
+   
     </div>
   )
 }

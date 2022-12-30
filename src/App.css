@@ -27,20 +27,14 @@
   flex-direction: column;
   overflow: scroll;
   max-height: 75vh;
-
 }
 
-
-
 .products p{
-
   margin: auto 0;
 }
 
 .mainitems{
  border: 1px solid black;
-
-  
   display: flex;
   flex-direction: column;
 }
@@ -48,15 +42,13 @@
 .variants{
   display: flex;
   gap: 2vh;
-  
   border-bottom: 1px solid gainsboro;
   border-top: 1px solid gainsboro;
 height: 10vh;
 padding: 1vh;
-
 }
+
 .variants img{
-  
   width: fit-content;
   aspect-ratio: 1/1;
   /* border: 1px solid gray; */
@@ -121,10 +113,9 @@ margin-right: 3vh;
   margin: auto;
  /* border: 1px solid red; */
  height: 5vh;
-  
 }
 
-.dragable input{
+.dragable p{
 margin: auto;
 width: 90%;
 padding: 4px 10px;
