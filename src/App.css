@@ -19,9 +19,9 @@
 }
 
 .products{
-  width: 735px;
-  border-top: 2px solid gainsboro;
-  border-bottom: 1px solid gainsboro;
+  width: 725px;
+  border-top: 1px solid gainsboro;
+  /* border-bottom: 4px solid red; */
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -31,13 +31,14 @@
 }
 
 
+
 .products p{
 
   margin: auto 0;
 }
 
 .mainitems{
- /* border: 1px solid black; */
+ border: 1px solid black;
 
   
   display: flex;
@@ -96,3 +97,45 @@ border: 2px solid gainsboro;
 margin-right: 3vh;
 
 }
+
+
+.dragable{
+  width: 50%;
+  height: 8vh;
+  margin: auto;
+  margin-bottom: 2vh;
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+  align-items: center;
+  
+
+  /* border: 1px solid red; */
+}
+.input{
+  width: 64%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;  display: flex;
+  gap: 0vh;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+ /* border: 1px solid red; */
+ height: 5vh;
+  
+}
+
+.dragable input{
+margin: auto;
+width: 90%;
+padding: 4px 10px;
+  /* border: 1px solid gainsboro; */
+}
+
+.addbutton{
+  color: white;
+  background-color: #008060;
+  /* border-radius: 4px; */
+  padding: 1vh 4vh;
+}
+
+

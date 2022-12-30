@@ -1,4 +1,5 @@
 import React from 'react'
+import { Spinner } from '@chakra-ui/react'
 
 
 
@@ -7,7 +8,7 @@ const ProductPicker = () => {
     const [error, setError] = React.useState(false)
     const [data, setData] = React.useState([])
     const [search, setSearch] = React.useState("")
-
+    const [check, setCheck] = React.useState(false)
 
     React.useEffect(() => {
    
@@ -25,7 +26,8 @@ const ProductPicker = () => {
         .finally(() => setLoading(false))
 
     }
-    
+
+  
     
   return (
     <div className='ProductPicker'> 
@@ -33,10 +35,16 @@ const ProductPicker = () => {
 
     <input className='search' onChange={(e) => setSearch(e.target.value)}
             type="text" placeholder="🔍 search" />
-            <h1>products</h1>
+          
     {
         loading ? (
-            <h1>loading...</h1>
+            <h1><Spinner
+            thickness='4px'
+            speed='0.65s'
+            emptyColor='gray.200'
+            color='blue.500'
+            size='xl'
+          /></h1>
         ) : error ? (
             <h1>something went wrong</h1>
         ) : (
@@ -45,7 +53,7 @@ const ProductPicker = () => {
                 <div className='mainitem' key ={item.id}>
                 <div className='variants'>
                 <input className='checkmark' 
-                       
+                       onChange={(e) => setCheck(e.target.checked)}
                  type="checkbox" />
                 <img src={item.image.src} alt="" />
                 <p>{item.title}</p>
